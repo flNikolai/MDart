@@ -1,9 +1,14 @@
 // Пользовательские переменные
-$accent: #019de0 // Акцентный цвет
-$fontsize: 14px // Размер шрифта
-$textcolor: #004461 // Цвет текста
-$system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // Семейство системных шрифтов
-$roboto: Arial, sans-serif // Семейство шрифтов Roboto
+$accent: #c20d0d // Акцентный цвет
+$textcolor: #18100E // Цвет текста
+
+$red: #c20d0d
+$pink: #FF8486
+$black: #18100E
+$grey: #555555
+
+
+
 
 $maxWidth: 1400 // Ширина макета
 $grid-gutter-width: 30px
@@ -12,9 +17,10 @@ $gutter: $grid-gutter-width
 // Импортируем Библеотеку
 // @import 'node_modules/toastr/build/toastr.min';
 
-/* 
- * Импортируем Шрифт
- */
+// Импортируем Шрифт
+$font: Myriad, sans-serif // Семейство шрифтов
+$system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // Семейство системных шрифтов
+
 @mixin font($fname, $fstyle, $fweight, $furl)
   @font-face
     font-family: $fname
@@ -23,8 +29,11 @@ $gutter: $grid-gutter-width
     // font-display: swap // Раскомментируйте для начального отображения системных шрифтов
     src: local($fname), url($furl) format('woff')
 
-// @include font('Hennigar', normal, 400, '../fonts/Hennigar.woff')
-// @include font('Hennigar', italic, 400, '../fonts/Hennigar_Italic.woff')
+@include font('Myriad', normal, 300, '../fonts/MyriadPro-Light.woff')
+@include font('Myriad', normal, 400, '../fonts/MyriadPro-Regular.woff')
+@include font('Myriad', normal, 500, '../fonts/MyriadPro-Cond.woff')
+@include font('Myriad', normal, 600, '../fonts/MyriadPro-Bold.woff')
+@include font('Myriad', normal, 700, '../fonts/MyriadPro-Black.woff')
 
 /*
  * Обнуление стилей
@@ -37,12 +46,12 @@ $gutter: $grid-gutter-width
   background-color: $accent
   color: #fff
 
-// input, textarea
-//   outline: none
-//   &:focus:required:invalid
-//     box-shadow: 0 0 4px 2px rgba(191, 118, 118, 0.7)
-//   &:required:valid
-//     box-shadow: 0 0 4px 2px rgba(0, 128, 0, 0.7)
+input, textarea
+  outline: none
+  &:focus:required:invalid
+    box-shadow: 0 0 4px 2px rgba(191, 118, 118, 0.7)
+  &:required:valid
+    box-shadow: 0 0 4px 2px rgba(0, 128, 0, 0.7)
 
 *
   padding: 0px
@@ -68,14 +77,14 @@ p
   margin-bottom: 15px
 
 ul li
-	list-style: none
+  list-style: none
 
 img
-	vertical-align: top
+  vertical-align: top
 
 h1, h2, h3, h4, h5, h6
-	font-weight: inherit
-	font-size: inherit
+  font-weight: inherit
+  font-size: inherit
 
 /*
  * Сайт. Основные стили
@@ -84,10 +93,10 @@ html, body
   height: 100%
   width: 100%
   font-size: 100%
-  font-size: $fontsize
+  font-size: 10px
 
 body
-  font-family: $roboto
+  font-family: $font
   min-width: 320px
   position: relative
   line-height: 1.15
@@ -107,9 +116,8 @@ body
 .container
   max-width: $maxWidth + px
   padding:
-    right: $gutter/2
-    left: $gutter/2
+  right: $gutter/2
+  left: $gutter/2
   margin:
-    left: auto
-    right: auto
-
+  left: auto
+  right: auto
